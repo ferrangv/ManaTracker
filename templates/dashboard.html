@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Manatracker</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            color: white;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo:hover {
+            color: #4caf50;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #f44336;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-right: 50px; /* Espacio a la derecha */
+        }
+
+        .button:hover {
+            background: #e53935;
+        }
+
+        main {
+            margin-top: 60px; /* Espacio para el header */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Manatracker</a>
+        <a href="/logout" class="button">Logout</a>
+    </header>
+    <main>
+        <!-- Contenido futuro del dashboard -->
+    </main>
+</body>
+</html>
