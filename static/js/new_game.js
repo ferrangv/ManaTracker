@@ -24,3 +24,4 @@ function updateEndConditionInput() {
         customInput.required = false;
     }
 }
+

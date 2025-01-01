@@ -21,13 +21,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgb(0, 1, 29);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     color: white;
     z-index: 1000;
 }
 
 .logo {
+    margin-left: 45px;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
@@ -170,5 +171,23 @@ main {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+.logo-container {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.rounded-logo {
+    width: 44px; /* Ajusta el tamaño según tus necesidades */
+    height: 44px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%; /* Esquinas redondeadas */
+    transition: transform 0.3s ease; /* Animación al pasar el mouse */
+}
+
+.rounded-logo:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    cursor: pointer;
 }
 

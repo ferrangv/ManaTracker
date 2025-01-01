@@ -59,3 +59,21 @@ p {
 .button.login:hover {
     background: #007bb5;
 }
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.rounded-logo {
+    width: 100px; /* Ajusta el tamaño según tus necesidades */
+    height: 100px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%; /* Esquinas redondeadas */
+    transition: transform 0.3s ease; /* Animación al pasar el mouse */
+}
+
+.rounded-logo:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    cursor: pointer;
+}

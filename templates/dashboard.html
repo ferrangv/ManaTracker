@@ -10,13 +10,18 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Manatracker</a>
+        <div class="logo-container">
+            <a href="/">
+                <img src="../static/images/logo2.jpeg" alt="Logo" class="rounded-logo">
+            </a>
+        </div>
+        <a href="/" class="logo">Manatracker</a>
         <a href="/logout" class="button">Logout</a>
     </header>
     <main>
         <!-- Botón "+ New Game" -->
         <div class="new-game">
-            <a href="/new_game"><button>+ New Game</button></a>
+            <a href="{{ url_for('games.new_game') }}"><button>+ New Game</button></a>
         </div>
 
         <!-- Tarjetas de Partidas -->

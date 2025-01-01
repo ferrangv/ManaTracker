@@ -11,9 +11,14 @@
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <a href="/">
+            <img src="../static/images/logo2.jpeg" alt="Logo" class="rounded-logo">
+        </a>
+    </div>
     <div class="container">
         <h1>Create New Game</h1>
-        <form action="/new_game" method="POST">
+        <form action="{{ url_for('games.new_game') }}" method="POST">
             <!-- Required Fields -->
             <div class="form-group">
                 <label for="name">Commander / Deck Name</label>
@@ -112,8 +117,9 @@
 
             <div class="form-actions">
                 <button type="submit">Create Game</button>
-                <button type="button" class="cancel-button" onclick="window.location.href='/dashboard'">Cancel</button>
+                <button type="button" class="cancel-button" onclick="window.location.href='{{ url_for('games.dashboard') }}'">Cancel</button>
             </div>
+            
         </form>
     </div>
 
