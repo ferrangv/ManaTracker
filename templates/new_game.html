@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Game</title>
+    <link rel="stylesheet" href="../static/css/new_game.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Game</h1>
+        <form action="/new_game" method="POST">
+            <!-- Required Fields -->
+            <div class="form-group">
+                <label for="name">Commander / Deck Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Color Identity</label>
+                <div class="checkbox-image-container">
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="white" name="colors" value="white">
+                        <label for="white"><img src="../static/images/white.png" alt="White"></label>
+                    </div>
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue"><img src="../static/images/blue.png" alt="Blue"></label>
+                    </div>
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="black" name="colors" value="black">
+                        <label for="black"><img src="../static/images/black.png" alt="Black"></label>
+                    </div>
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="red" name="colors" value="red">
+                        <label for="red"><img src="../static/images/red.png" alt="Red"></label>
+                    </div>
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="green" name="colors" value="green">
+                        <label for="green"><img src="../static/images/green.png" alt="Green"></label>
+                    </div>
+                    <div class="checkbox-image-wrapper">
+                        <input type="checkbox" id="colorless" name="colors" value="colorless">
+                        <label for="colorless"><img src="../static/images/colorless.png" alt="Colorless"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="result">Position</label>
+                <select id="result" name="result" required>
+                    <option value="" disabled selected>Select Position</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                </select>
+            </div>
+            <!-- Advanced Options -->
+            <div class="toggle-more-options" id="toggle-advanced">
+                Advanced <i class="fa-solid fa-arrow-down-wide-short"></i>
+            </div>
+
+            <div id="advanced-options" class="hidden">
+                <div class="form-group">
+                    <label for="turns">How many turns?</label>
+                    <input type="number" id="turns" name="turns">
+                </div>
+
+                <div class="form-group">
+                    <label for="end_condition">How did the game end?</label>
+                    <select id="end_condition_select" name="end_condition" onchange="updateEndConditionInput()">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Lethal Combat Damage">Lethal Combat Damage</option>
+                        <option value="Infinite Combo">Infinite Combo</option>
+                        <option value="Commander Damage">Commander Damage</option>
+                        <option value="Token Overrun">Token Overrun</option>
+                        <option value="Infect/Poison Counters">Infect/Poison Counters</option>
+                        <option value="Milled Out">Milled Out</option>
+                        <option value="Thassa’s Oracle">Thassa’s Oracle</option>
+                        <option value="Approach of the Second Sun">Approach of the Second Sun</option>
+                        <option value="Laboratory Maniac">Laboratory Maniac</option>
+                        <option value="Jace, Wielder of Mysteries">Jace, Wielder of Mysteries</option>
+                        <option value="Aetherflux Reservoir">Aetherflux Reservoir</option>
+                        <option value="Massive X-Spell Finisher">Massive X-Spell Finisher</option>
+                        <option value="Felidar Sovereign">Felidar Sovereign</option>
+                        <option value="Test of Endurance">Test of Endurance</option>
+                        <option value="Revel in Riches">Revel in Riches</option>
+                        <option value="Mechanized Production">Mechanized Production</option>
+                        <option value="Maze’s End">Maze’s End</option>
+                        <option value="Door to Nothingness">Door to Nothingness</option>
+                        <option value="Battle of Wits">Battle of Wits</option>
+                        <option value="Stax/Hard Lock">Stax/Hard Lock</option>
+                        <option value="Custom">Other (Specify Below)</option>
+                    </select>
+                    <textarea id="end_condition_custom" name="end_condition_custom" placeholder="Specify if 'Other'" style="display: none;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="sr_turn1">Sol Ring turn one?</label>
+                    <input type="checkbox" id="sr_turn1" name="sr_turn1">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Create Game</button>
+                <button type="button" class="cancel-button" onclick="window.location.href='/dashboard'">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../static/js/new_game.js"></script>
+</body>
+</html>
+

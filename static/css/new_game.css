@@ -1,0 +1,196 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Título */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+    color: #d3d3d3;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Contenedor de checkboxes con imágenes */
+.checkbox-image-container {
+    display: flex;
+    gap: 10px; /* Espaciado entre las imágenes */
+    align-items: center;
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.checkbox-image-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox-image-wrapper input[type="checkbox"] {
+    display: none; /* Oculta el checkbox original */
+}
+
+.checkbox-image-wrapper img {
+    width: 40px; /* Tamaño de la imagen */
+    height: 40px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.5); /* Oscurece la imagen por defecto */
+}
+
+.checkbox-image-wrapper input[type="checkbox"]:checked + label img {
+    filter: brightness(1); /* Imagen normal cuando está seleccionada */
+   
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    background: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Espaciado superior del botón */
+}
+
+button:hover {
+    background: #007bb5;
+}
+
+/* Botón de cancelar */
+.cancel-button {
+    background: #6c757d;
+}
+
+.cancel-button:hover {
+    background: #5a6268;
+}
+
+/* Espaciado entre botones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle-more-options {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    
+    margin-bottom: 15px; /* Espaciado superior del botón de opciones avanzadas */
+}
+
+.toggle-more-options i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.advanced-options {
+    margin-top: 15px; /* Espaciado superior */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.toggle-more-options.expanded i {
+    transform: rotate(180deg);
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    box-sizing: border-box;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1rem;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    display: block;
+    margin-top: 10px;
+    resize: vertical;
+}

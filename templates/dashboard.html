@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Manatracker</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <header>
@@ -13,7 +14,37 @@
         <a href="/logout" class="button">Logout</a>
     </header>
     <main>
-        <!-- Contenido futuro del dashboard -->
+        <!-- Botón "+ New Game" -->
+        <div class="new-game">
+            <a href="/new_game"><button>+ New Game</button></a>
+        </div>
+
+        <!-- Tarjetas de Partidas -->
+        <div class="cards-container">
+            {% for game in games %}
+            <div class="game-card" 
+                 style="
+                     border-color: 
+                     {% if game.result == '1st' %}gold
+                     {% elif game.result == '2nd' %}silver
+                     {% elif game.result == '3rd' %}#cd7f32
+                     {% else %}black{% endif %};
+                 ">
+                <div class="game-title">{{ game.name }}</div>
+                <div class="game-images">
+                    {% for color in game.colors.split(',') %}
+                    <img src="../static/images/{{ color }}.png" alt="{{ color }}">
+                    {% endfor %}
+                </div>
+                <div class="game-date">
+                    Created on: {{ game.created_at.strftime('%Y-%m-%d') if game.created_at else 'Unknown' }}
+                </div>                
+                <a href="#" class="game-info"><i class="fa-solid fa-circle-arrow-right"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
     </main>
 </body>
 </html>
