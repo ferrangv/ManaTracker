@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, session
+from flask import render_template, request, redirect, url_for, session, abort, flash
 from models import db
 from models.game import Game
 from . import games_bp
@@ -24,7 +24,9 @@ def new_game():
         colors = ','.join(request.form.getlist('colors'))
         sr_turn1 = request.form.get('sr_turn1') == 'on'
         result = request.form['result']
-        turns = int(request.form.get('turns', 0)) if request.form.get('turns') else None
+        turns = int(request.form['turns']) if request.form.get('turns') else None
+        turn_order = request.form['turn_order']  # Nuevo campo
+        notes = request.form['notes']  # Nuevo campo
         end_condition = request.form.get('end_condition', '')
 
         new_game = Game(
@@ -33,6 +35,8 @@ def new_game():
             sr_turn1=sr_turn1,
             result=result,
             turns=turns,
+            turn_order=turn_order,
+            notes=notes,
             end_condition=end_condition,
             user_id=session['user_id']
         )
@@ -42,3 +46,47 @@ def new_game():
         return redirect(url_for('games.dashboard'))
 
     return render_template('new_game.html')
+
+
+@games_bp.route('/detail/<int:game_id>', methods=['GET'])
+def game_detail(game_id):
+    game = Game.query.get(game_id)
+    if not game:
+        abort(404)  # Si la partida no existe, retorna un error 404
+    return render_template('game_detail.html', game=game)
+
+
+@games_bp.route('/delete/<int:game_id>', methods=['POST'])
+def delete_game(game_id):
+    if 'user_id' not in session:
+        return redirect(url_for('auth.login'))
+
+    game = Game.query.get_or_404(game_id)
+    if game.user_id != session['user_id']:
+        flash("You are not authorized to delete this game.")
+        return redirect(url_for('games.dashboard'))
+
+    db.session.delete(game)
+    db.session.commit()
+    flash("Game deleted successfully.")
+    return redirect(url_for('games.dashboard'))
+
+
+@games_bp.route('/edit/<int:game_id>', methods=['POST'])
+def edit_game(game_id):
+    game = Game.query.get_or_404(game_id)
+
+    # Actualizar los campos del juego
+    game.name = request.form['name']
+    game.colors = request.form['colors']
+    game.result = request.form['result']
+    game.turns = request.form.get('turns', type=int)
+    game.turn_order = request.form['turn_order']
+    game.end_condition = request.form['end_condition']
+    game.sr_turn1 = 'sr_turn1' in request.form
+    game.notes = request.form['notes']
+
+    db.session.commit()
+    flash('Game updated successfully!', 'success')
+    return redirect(url_for('games.game_detail', game_id=game.id))
+

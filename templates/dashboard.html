@@ -44,10 +44,13 @@
                 <div class="game-date">
                     Created on: {{ game.created_at.strftime('%Y-%m-%d') if game.created_at else 'Unknown' }}
                 </div>                
-                <a href="#" class="game-info"><i class="fa-solid fa-circle-arrow-right"></i></a>
+                <a href="{{ url_for('games.game_detail', game_id=game.id) }}" class="game-info">
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                </a>
             </div>
             {% endfor %}
         </div>
+        
         
         
     </main>

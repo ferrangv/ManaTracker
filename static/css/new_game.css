@@ -9,7 +9,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     text-align: center;
 }
 
@@ -212,3 +213,17 @@ textarea {
     transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
     cursor: pointer;
 }
+
+.form-columns {
+    display: flex;
+    gap: 20px; /* Espaciado entre columnas */
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los elementos de la columna */
+}
+
