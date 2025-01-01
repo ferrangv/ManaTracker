@@ -5,8 +5,14 @@ import os
 from models import db
 from routes.auth import auth_bp  # Asegúrate de importar el blueprint de auth
 from routes.games import games_bp  # Otro blueprint de ejemplo
+from flask_migrate import upgrade
+
 
 app = Flask(__name__)
+
+@app.before_first_request
+def apply_migrations():
+    upgrade()
 
 # Configuración de la base de datos
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///users.db')
