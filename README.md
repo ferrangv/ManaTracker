@@ -1,1 +1,3 @@
 # ManaTracker
+
+venv\Scripts\activate

@@ -1,3 +1,4 @@
+/* statistics.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -88,122 +89,6 @@ header {
     background: #e53935;
 }
 
-main {
-    margin-top: 100px;
-    padding: 20px;
-    width: calc(95%);
-}
-
-.new-game {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-    margin-right: -20px;
-}
-
-.new-game button {
-    background: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.new-game button:hover {
-    background: #e55000;
-}
-
-.game-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid gold;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    width: calc(100% - 20px);
-    margin: 10px auto;
-}
-
-.game-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    flex: 2;
-    text-align: left;
-    margin-right: 20px;
-}
-
-.game-images {
-    display: flex;
-    gap: 10px;
-    flex: 3;
-    justify-content: center;
-}
-
-.game-images img {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-}
-
-.game-date {
-    flex: 2;
-    font-size: 1rem;
-    color: #ccc;
-    text-align: center;
-}
-
-.game-info {
-    flex: 1;
-    text-align: right;
-    margin-right: 20px;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 2rem;
-}
-
-.game-info:hover {
-    color: #e55000;
-}
-
-.card {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 15px;
-    margin: 15px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.card.gold {
-    border: 3px solid gold;
-}
-
-.card.silver {
-    border: 3px solid silver;
-}
-
-.card.bronze {
-    border: 3px solid #cd7f32;
-}
-
-.card.black {
-    border: 3px solid black;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
 .logo-container {
     position: absolute;
     top: 8px;
@@ -238,3 +123,79 @@ main {
 .logout-button:hover {
     background: #e53935; /* Color rojo más oscuro para el hover */
 }
+
+
+
+/* Ajusta el espacio superior para evitar que el header fijo se superponga */
+main {
+    margin-top: 100px;
+    padding: 20px;
+    width: calc(95%);
+    text-align: center;
+  }
+  
+  /* Título principal */
+  main h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Contenedor de métricas principales */
+  .stats-overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .stat-item {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .stat-item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .stat-item p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Contenedor para gráficos */
+  .charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Espaciado entre gráficos */
+}
+
+.chart {
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px; /* Ajusta el tamaño según tus necesidades */
+    height: 400px; /* Asegúrate de definir una altura */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.chart canvas {
+    max-width: 100%;
+    max-height: 400px;
+    margin: 0 auto;
+}
+
+
+  h2{
+    color: #e59900;
+  }

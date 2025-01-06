@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics - Manatracker</title>
+  <link rel="stylesheet" href="../static/css/statistics.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  >
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="{{ url_for('games.dashboard') }}">
+        <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Logo" class="rounded-logo">
+      </a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li>
+          <a href="{{ url_for('games.dashboard') }}">
+            <i class="fa-solid fa-home"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <!-- En Statistics marcamos esta opción como activa -->
+          <a href="{{ url_for('user.statistics') }}" class="active">
+            <i class="fa-solid fa-chart-line"></i> Statistics
+          </a>
+        </li>
+        <li>
+            <a href="{{ url_for('user.achievements') }}">
+                <i class="fa-solid fa-trophy"></i> Achievements
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('user.leaderboards') }}">
+                <i class="fa-solid fa-medal"></i> Leaderboards
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('user.profile') }}">
+                <i class="fa-solid fa-user"></i> Profile
+            </a>
+        </li>
+    </ul>
+    </nav>
+    <a href="/" class="logout-button">Logout</a>
+  </header>
+
+  <!-- Contenido principal de la página de estadísticas -->
+  <main>
+    
+    <div class="stats-overview">
+        <div class="stat-item">
+            <h2>Total Games</h2>
+            <p>{{ total_games }}</p>
+        </div>
+        <div class="stat-item">
+            <h2>Total Wins</h2>
+            <p>{{ total_wins }}</p>
+        </div>
+      <div class="stat-item">
+        <h2>Win Rate</h2>
+        <p>{{ win_rate }}%</p>
+      </div>
+      <div class="stat-item">
+        <h2>Average Placement</h2>
+        <p>{{ avg_placement }} </p>
+      </div>
+    </div>
+    <div class="stats-overview">
+        <div class="stat-item">
+            <h2>Most Played Deck</h2>
+            <p>{{ most_played_deck }}</p>
+        </div>
+        <div class="stat-item">
+            <h2>Average Number of Turns per Game</h2>
+            <p>{{ avg_turns }}</p>
+        </div>
+      <div class="stat-item">
+        <h2>Most Common Wincon on Your Games</h2>
+            <p>{{ most_common_wincon_all }}</p>
+      </div>
+      <div class="stat-item">
+        <h2>Your Most Common Wincon</h2>
+        <p>{{ most_common_wincon_user }}</p>
+      </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart">
+            <canvas id="deckUsageChart"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="endConditionChart"></canvas>
+        </div>
+    </div>
+    
+  </main>
+
+  <script>
+        const deckNames = {{ deck_names | tojson }};
+        const deckPlayedCounts = {{ deck_played_counts | tojson }};
+        const conditionLabels = {{ condition_labels | tojson }};
+        const conditionValues = {{ condition_values | tojson }};
+  </script>
+
+  <!-- Script propio para manejar la lógica de las estadísticas (Chart.js, etc.) -->
+  <script src="../static/js/statistics.js"></script>
+</body>
+</html>

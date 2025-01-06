@@ -5,6 +5,9 @@ import os
 from models import db
 from routes.auth import auth_bp  # Importar el blueprint de auth
 from routes.games import games_bp  # Importar el blueprint de games
+from routes.user import user_bp
+
+
 
 app = Flask(__name__)
 
@@ -24,6 +27,7 @@ with app.app_context():
 # Registrar blueprints
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(games_bp, url_prefix='/games')
+app.register_blueprint(user_bp, url_prefix='/user')
 
 # Ruta de inicio
 @app.route('/')

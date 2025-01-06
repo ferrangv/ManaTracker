@@ -11,13 +11,43 @@
 <body>
     <header>
         <div class="logo-container">
-            <a href="/">
-                <img src="../static/images/logo2.jpeg" alt="Logo" class="rounded-logo">
+            <a href="{{ url_for('games.dashboard') }}">
+                <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Logo" class="rounded-logo">
             </a>
         </div>
-        <a href="/" class="logo">Manatracker</a>
-        <a href="{{ url_for('auth.logout') }}" class="button">Logout</a>
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{ url_for('games.dashboard') }}" class="active">
+                        <i class="fa-solid fa-home"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('user.statistics') }}">
+                        <i class="fa-solid fa-chart-line"></i> Statistics
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('user.achievements') }}">
+                        <i class="fa-solid fa-trophy"></i> Achievements
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('user.leaderboards') }}">
+                        <i class="fa-solid fa-medal"></i> Leaderboards
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('user.profile') }}">
+                        <i class="fa-solid fa-user"></i> Profile
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <a href="/" class="logout-button">Logout</a>
+
     </header>
+    
     <main>
         <!-- Botón "+ New Game" -->
         <div class="new-game">
