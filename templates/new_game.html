@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Game</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/logo2.jpeg">
+    
     <link rel="stylesheet" href="../static/css/new_game.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -94,7 +96,7 @@
 
                 <div class="form-group">
                     <label for="turns">How many turns?</label>
-                    <input type="number" id="turns" name="turns">
+                    <input type="number" id="turns" min="1" name="turns">
                 </div>
 
                 <div class="form-group">
@@ -104,6 +106,7 @@
                         <option value="Lethal Combat Damage">Lethal Combat Damage</option>
                         <option value="Infinite Combo">Infinite Combo</option>
                         <option value="Commander Damage">Commander Damage</option>
+                        <option value="Commander Damage">Burned out</option>
                         <option value="Token Overrun">Token Overrun</option>
                         <option value="Infect/Poison Counters">Infect/Poison Counters</option>
                         <option value="Milled Out">Milled Out</option>

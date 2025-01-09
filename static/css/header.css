@@ -1,0 +1,82 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgb(0, 1, 29);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    color: white;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-left: 50px;
+}
+
+.nav-links a:hover {
+    color: #e55000;
+    transform: scale(1.1);
+}
+
+.nav-links .active {
+    color: #e55000;
+}
+
+.logo-container {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.rounded-logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.rounded-logo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #f44336; /* Color rojo original */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-right: 40px; /* Ajusta el espacio si es necesario */
+}
+
+.logout-button:hover {
+    background: #e53935; /* Color rojo más oscuro para el hover */
+}

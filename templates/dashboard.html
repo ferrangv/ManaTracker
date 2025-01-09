@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Manatracker</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/logo2.jpeg">
+
     <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -49,40 +52,74 @@
     </header>
     
     <main>
+        
+
         <!-- Botón "+ New Game" -->
         <div class="new-game">
-            <a href="{{ url_for('games.new_game') }}"><button>+ New Game</button></a>
+            <div class="search-box">
+                <span class="search-icon">
+                    <i class="fa fa-search"></i>
+                </span>
+                <input type="text" id="searchBar" placeholder="Search by name...">
+            </div>
+            <a href="{{ url_for('games.new_game') }}"><button>New Game</button></a>
         </div>
 
         <!-- Tarjetas de Partidas -->
-        <div class="cards-container">
-            {% for game in games %}
-            <div class="game-card" 
-                 style="
-                     border-color: 
-                     {% if game.result == '1st' %}gold
-                     {% elif game.result == '2nd' %}silver
-                     {% elif game.result == '3rd' %}#cd7f32
-                     {% else %}black{% endif %};
-                 ">
-                <div class="game-title">{{ game.name }}</div>
-                <div class="game-images">
-                    {% for color in game.colors.split(',') %}
-                    <img src="../static/images/{{ color }}.png" alt="{{ color }}">
-                    {% endfor %}
+        <div class="cards-container" id="cardsContainer">
+            {% if games %}
+                {% for game in games %}
+                <div class="game-card"
+                     style="border-color:
+                            {% if game.result == '1st' %}gold
+                            {% elif game.result == '2nd' %}silver
+                            {% elif game.result == '3rd' %}#cd7f32
+                            {% else %}black{% endif %};">
+                    <div class="game-title">{{ game.name }}</div>
+                    <div class="game-images">
+                        {% for color in game.colors.split(',') %}
+                        <img src="../static/images/{{ color }}.png" alt="{{ color }}">
+                        {% endfor %}
+                    </div>
+                    <div class="game-date">
+                        Created on: {{ game.created_at.strftime('%Y-%m-%d') if game.created_at else 'Unknown' }}
+                    </div>
+                    <a href="{{ url_for('games.game_detail', game_id=game.id) }}" class="game-info">
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="game-date">
-                    Created on: {{ game.created_at.strftime('%Y-%m-%d') if game.created_at else 'Unknown' }}
-                </div>                
-                <a href="{{ url_for('games.game_detail', game_id=game.id) }}" class="game-info">
-                    <i class="fa-solid fa-circle-arrow-right"></i>
-                </a>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <p>No se encontraron partidas.</p>
+            {% endif %}
         </div>
-        
-        
-        
+
+
+         <!-- Tu script para filtrar en vivo -->
+         <script>
+            const searchInput = document.getElementById('searchBar');
+            const cardsContainer = document.getElementById('cardsContainer');
+
+            searchInput.addEventListener('input', function() {
+                const filter = searchInput.value.toLowerCase();
+                const cards = cardsContainer.getElementsByClassName('game-card');
+
+                for (let i = 0; i < cards.length; i++) {
+                    // Encontrar el título del juego
+                    let titleElement = cards[i].querySelector('.game-title');
+                    if (titleElement) {
+                        let text = titleElement.innerText.toLowerCase();
+                        // Comprobar si contiene el texto buscado
+                        if (text.includes(filter)) {
+                            cards[i].style.display = '';
+                        } else {
+                            cards[i].style.display = 'none';
+                        }
+                    }
+                }
+            });
+        </script>
+
     </main>
 </body>
 </html>

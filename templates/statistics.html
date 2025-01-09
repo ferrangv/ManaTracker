@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Statistics - Manatracker</title>
+  <link rel="icon" type="image/x-icon" href="../static/images/logo2.jpeg">
+
   <link rel="stylesheet" href="../static/css/statistics.css">
+  <link rel="stylesheet" href="../static/css/header.css">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -100,7 +103,137 @@
             <canvas id="endConditionChart"></canvas>
         </div>
     </div>
-    
+
+    <div class="charts-container">
+      <div class="chart">
+        <canvas id="colorCombinationChart"></canvas>
+      </div>
+      <div class="chart">
+        <canvas id="colorPieChart"></canvas>
+      </div>
+    </div>
+
+    <div class="stats-overview-container">
+      <!-- Tabla de posiciones -->
+      <div class="charts-container">
+      <div class="chart">
+        <div class="stats-table-container">
+          <h2>Position Overview</h2>
+          <table class="stats-table">
+              <thead>
+                  <tr>
+                      <th>Position</th>
+                      <th>Percentage</th>
+                      <th>Games</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for data in position_data %}
+                  <tr>
+                      <td>{{ data.position }}</td>
+                      <td>{{ data.percentage }}</td>
+                      <td>{{ data.count }}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+    </div>
+      <!-- Gráfico de pie -->
+      <div class="chart">
+          <canvas id="positionChart"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="charts-container">
+    <div class="chart">
+     <div class="turn-order-performance">
+      <h2>Performance by Turn Order</h2>
+      <table class="turn-order-table">
+        <thead>
+            <tr>
+                <th>Turn Order</th>
+                <th>Win Rate</th>
+                <th>Number of Games</th>
+                <th>Average Placement</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in turn_order_table %}
+            <tr>
+                <td>{{ row.turn_order }}</td>
+                <td>{{ row.win_rate }}</td>
+                <td>{{ row.games }}</td>
+                <td>{{ row.avg_placement }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="chart">
+    <div class="wincon-table-container">
+    <h2>Win Conditions</h2>
+    <table class="wincon-table">
+        <thead>
+            <tr>
+                <th>Win Condition</th>
+                <th>Total Appearances</th>
+                <th>Wins</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in wincon_table %}
+            <tr>
+                <td>{{ row.wincon }}</td>
+                <td>{{ row.total }}</td>
+                <td>{{ row.wins }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="chart-big">
+<div class="decks-table-container">
+  <h2>Deck Performance</h2>
+  <table class="decks-table">
+      <thead>
+          <tr>
+              <th>Deck</th>
+              <th>Games</th>
+              <th>Avg Placement</th>
+              <th>Winrate</th>
+              <th>Top 2%</th>
+              <th>Top 3%</th>
+              <th>Top 4%</th>
+              <th>Top 5+%</th>
+              <th>Avg Turns</th>
+              <th>Most Common Wincon</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for row in decks_table %}
+          <tr>
+              <td>{{ row.deck }}</td>
+              <td>{{ row.games }}</td>
+              <td>{{ row.avg_placement }}</td>
+              <td>{{ row.winrate }}</td>
+              <td>{{ row.top2 }}</td>
+              <td>{{ row.top3 }}</td>
+              <td>{{ row.top4 }}</td>
+              <td>{{ row.top5plus }}</td>
+              <td>{{ row.avg_turns }}</td>
+              <td>{{ row.wincon }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+</div>
+
   </main>
 
   <script>
@@ -108,6 +241,12 @@
         const deckPlayedCounts = {{ deck_played_counts | tojson }};
         const conditionLabels = {{ condition_labels | tojson }};
         const conditionValues = {{ condition_values | tojson }};
+        const colorLabels = {{ color_labels | tojson }};
+        const colorPlayedCounts = {{ color_played_counts | tojson }};
+        const colorLabelsPie = {{ color_labels_pie | tojson }};
+        const colorCountsPie = {{ color_counts_pie | tojson }};
+        const positionLabels = {{ position_labels | tojson }};
+        const positionValues = {{ position_values | tojson }};
   </script>
 
   <!-- Script propio para manejar la lógica de las estadísticas (Chart.js, etc.) -->

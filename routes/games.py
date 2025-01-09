@@ -9,9 +9,21 @@ def dashboard():
         return redirect(url_for('auth.login'))
 
     user_id = session['user_id']
-    games = Game.query.filter_by(user_id=user_id).all()
+    
+    search = request.args.get('search')  # Obtener parámetro de búsqueda
+    
+    if search:
+        # Filtras por el nombre de la partida que contenga la cadena "search"
+        # Usar ilike (o like), para ignorar mayúsculas/minúsculas en PostgreSQL
+        games = Game.query.filter(
+            Game.user_id == user_id,
+            Game.name.ilike(f'%{search}%')  # o .like(...) si tu DB no soporta ilike
+        ).all()
+    else:
+        # Si no hay búsqueda, traes todas las partidas
+        games = Game.query.filter_by(user_id=user_id).all()
 
-    return render_template('dashboard.html', games=games)
+    return render_template('dashboard.html', games=games, search=search)
 
 
 @games_bp.route('/new_game', methods=['GET', 'POST'])
