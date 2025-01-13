@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
-
+    
 }
 
 
@@ -76,4 +76,22 @@ p {
 .rounded-logo:hover {
     transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
     cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    footer {
+        font-size: 0.8rem; /* Reducimos ligeramente el tamaño de la fuente */
+        padding: 8px 0; /* Ajustamos el padding */
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        font-size: 0.75rem; /* Fuente aún más pequeña para pantallas muy pequeñas */
+        padding: 6px 0;
+    }
+
 }

@@ -157,4 +157,87 @@ h2 {
 }
 
 
-  
+/* Responsiveness for medium screens (tablets and smaller) */
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 80px; /* Ajusta el margen superior */
+        padding: 10px;
+    }
+
+    .stats-overview {
+        flex-wrap: wrap; /* Asegura que las métricas se ajusten */
+        justify-content: center;
+    }
+
+    .stat-item {
+        width: 180px; /* Reduce el ancho de cada métrica */
+        padding: 15px; /* Espaciado más compacto */
+        margin: 10px;
+    }
+
+    .charts-container {
+        gap: 20px; /* Reduce el espacio entre gráficos */
+    }
+
+    .chart {
+        width: 90%; /* Gráficos ocupan casi todo el ancho disponible */
+        min-height: 300px; /* Reduce la altura mínima */
+    }
+
+    .chart-big {
+        width: 100%; /* Gráficos grandes ocupan todo el ancho */
+    }
+
+    canvas {
+        max-height: 300px; /* Limita la altura del canvas */
+    }
+
+    .stats-table,
+    .turn-order-table,
+    .wincon-table,
+    .decks-table {
+        font-size: 0.9rem; /* Reduce el tamaño de fuente */
+    }
+}
+
+/* Responsiveness for small screens (phones) */
+@media screen and (max-width: 480px) {
+    .stats-overview {
+        flex-direction: column; /* Acomoda métricas en una sola columna */
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin: 5px 0;
+    }
+
+    .charts-container {
+        flex-direction: column; /* Acomoda gráficos verticalmente */
+        gap: 15px;
+    }
+
+    .chart {
+        width: 100%; /* Gráficos ocupan todo el ancho disponible */
+        min-height: 250px; /* Altura más compacta */
+    }
+
+    canvas {
+        max-height: 250px; /* Canvas más pequeño */
+    }
+
+    .stats-table,
+    .turn-order-table,
+    .wincon-table,
+    .decks-table {
+        font-size: 0.8rem; /* Reduce aún más el tamaño de la fuente */
+        overflow-x: auto; /* Permite desplazamiento horizontal en tablas */
+    }
+
+    .stats-table th,
+    .turn-order-table th,
+    .wincon-table th,
+    .decks-table th {
+        font-size: 0.9rem; /* Ajusta el tamaño de las cabeceras */
+    }
+}

@@ -18,42 +18,44 @@
 <body>
   <header>
     <div class="logo-container">
-      <a href="{{ url_for('games.dashboard') }}">
-        <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Logo" class="rounded-logo">
-      </a>
+        <a href="{{ url_for('games.dashboard') }}">
+            <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Logo" class="rounded-logo">
+        </a>
     </div>
-    <nav>
-      <ul class="nav-links">
-        <li>
-          <a href="{{ url_for('games.dashboard') }}">
-            <i class="fa-solid fa-home"></i> Dashboard
-          </a>
-        </li>
-        <li>
-          <!-- En Statistics marcamos esta opción como activa -->
-          <a href="{{ url_for('user.statistics') }}" class="active">
-            <i class="fa-solid fa-chart-line"></i> Statistics
-          </a>
-        </li>
-        <li>
-            <a href="{{ url_for('user.achievements') }}">
-                <i class="fa-solid fa-trophy"></i> Achievements
-            </a>
-        </li>
-        <li>
-            <a href="{{ url_for('user.leaderboards') }}">
-                <i class="fa-solid fa-medal"></i> Leaderboards
-            </a>
-        </li>
-        <li>
-            <a href="{{ url_for('user.profile') }}">
-                <i class="fa-solid fa-user"></i> Profile
-            </a>
-        </li>
-    </ul>
+    <div class="menu-icon" id="menu-icon">
+        <i class="fa fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+    </div>
+    <nav id="nav-links">
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('games.dashboard') }}">
+                    <i class="fa-solid fa-home"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('user.statistics') }}" class="active">
+                    <i class="fa-solid fa-chart-line"></i> Statistics
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('user.achievements') }}">
+                    <i class="fa-solid fa-trophy"></i> Achievements
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('user.leaderboards') }}">
+                    <i class="fa-solid fa-medal"></i> Leaderboards
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('user.profile') }}">
+                    <i class="fa-solid fa-user"></i> Profile
+                </a>
+            </li>
+        </ul>
     </nav>
     <a href="/" class="logout-button">Logout</a>
-  </header>
+</header>
 
   <!-- Contenido principal de la página de estadísticas -->
   <main>
@@ -251,5 +253,6 @@
 
   <!-- Script propio para manejar la lógica de las estadísticas (Chart.js, etc.) -->
   <script src="../static/js/statistics.js"></script>
+  <script src="../static/js/burger_menu.js"></script>
 </body>
 </html>

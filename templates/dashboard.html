@@ -18,7 +18,10 @@
                 <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Logo" class="rounded-logo">
             </a>
         </div>
-        <nav>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fa fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+        </div>
+        <nav id="nav-links">
             <ul class="nav-links">
                 <li>
                     <a href="{{ url_for('games.dashboard') }}" class="active">
@@ -48,7 +51,6 @@
             </ul>
         </nav>
         <a href="/" class="logout-button">Logout</a>
-
     </header>
     
     <main>
@@ -90,7 +92,7 @@
                 </div>
                 {% endfor %}
             {% else %}
-                <p>No se encontraron partidas.</p>
+                <h1>Create your first game.</h1>
             {% endif %}
         </div>
 
@@ -121,5 +123,9 @@
         </script>
 
     </main>
+
+    <script src="../static/js/burger_menu.js"></script>
+    
+
 </body>
 </html>

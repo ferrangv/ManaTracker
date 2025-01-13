@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     height: 100%;
     text-align: center;
+    flex-direction: column;
 }
 
 .button {
@@ -177,4 +178,97 @@ main {
 /* Color del placeholder */
 .search-box input::placeholder {
     color: #ccc;              /* Placeholder gris claro */
+}
+
+
+
+/* Responsiveness for medium screens (tablets and smaller) */
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 80px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .new-game {
+        flex-direction: column; /* Botón y barra de búsqueda en una columna */
+        align-items: stretch;
+        gap: 10px;
+        margin: 0 auto;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%; /* Barra de búsqueda ocupa todo el ancho */
+    }
+
+    .game-card {
+        flex-direction: column; /* Cambiar diseño a una columna */
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    .game-title, .game-date, .game-info {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .game-images {
+        justify-content: center;
+        flex-wrap: wrap; /* Permite que las imágenes se ajusten en varias filas */
+    }
+
+    .game-images img {
+        width: 40px;
+        height: 40px; /* Reducir tamaño de las imágenes */
+    }
+}
+
+/* Responsiveness for small screens (phones) */
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px; /* Espaciado entre los enlaces */
+        margin-left: 0; /* Centrar los enlaces */
+    }
+
+    .rounded-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logout-button {
+        margin-right: 0;
+        margin-top: 10px;
+        width: 80%; /* Botón ocupa un ancho mayor */
+        text-align: center;
+    }
+
+    main {
+        margin-top: 100px;
+        padding: 10px;
+    }
+
+    .game-card {
+        padding: 10px;
+    }
+
+    .game-images img {
+        width: 30px;
+        height: 30px; /* Imágenes aún más pequeñas */
+    }
+
+    .search-box input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }

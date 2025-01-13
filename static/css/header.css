@@ -80,3 +80,108 @@ header {
 .logout-button:hover {
     background: #e53935; /* Color rojo más oscuro para el hover */
 }
+
+
+
+/* Estilos para el menú hamburguesa */
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/* Ocultar menú en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    #nav-links {
+        display: none; /* Ocultar menú inicialmente */
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 1, 29, 0.9);
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #nav-links ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    #nav-links.show {
+        display: block; /* Mostrar el menú cuando esté activo */
+    }
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e55000;
+    transform: scale(1.1);
+}
+
+.nav-links .active {
+    color: #e55000;
+}
+
+.logo-container {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.rounded-logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.rounded-logo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #f44336; /* Color rojo original */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #e53935; /* Color rojo más oscuro para el hover */
+}

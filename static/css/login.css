@@ -72,3 +72,64 @@ p a:hover {
     width: 100%;
     max-width: 400px;
 }
+
+/* Responsiveness for medium screens (tablets and smaller) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    form {
+        gap: 10px; /* Reducir espacio entre campos */
+    }
+
+    input, button {
+        font-size: 1rem; /* Ajustar tamaño de fuente */
+        padding: 8px; /* Reducir padding */
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.9rem; /* Texto más compacto */
+    }
+}
+
+/* Responsiveness for small screens (phones) */
+@media screen and (max-width: 480px) {
+    .logo-container {
+        margin-bottom: 20px; /* Añadir espacio entre el logo y el contenido */
+    }
+
+    .rounded-logo {
+        width: 80px; /* Reducir tamaño del logo */
+        height: 80px;
+    }
+
+    .container {
+        padding: 15px;
+        max-width: 100%;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Texto más pequeño */
+    }
+
+    input, button {
+        font-size: 0.9rem;
+        padding: 6px; /* Aún más compacto */
+    }
+
+    .error {
+        font-size: 0.8rem; /* Error más compacto */
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,26 @@
+footer {
+    text-align: center;
+    padding: 0px 0;
+    background: rgba(0, 1, 29, 1); /* Fondo semitransparente */
+    color: white; /* Texto blanco */
+    width: 100%;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Línea superior sutil */
+    position: absolute; /* Fijo dentro del flujo de la página */
+    bottom: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    footer {
+        font-size: 0.8rem; /* Reducir tamaño de fuente */
+        padding: 8px 0; /* Ajustar el padding */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    footer {
+        font-size: 0.75rem; /* Fuente más pequeña para móviles */
+        padding: 6px 0; /* Menos espacio vertical */
+    }
+}

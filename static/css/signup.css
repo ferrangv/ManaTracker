@@ -73,3 +73,99 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+
+.messages {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.messages p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.messages p.error {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Responsiveness for medium screens (tablets and smaller) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input {
+        font-size: 0.9rem; /* Reducir el tamaño del texto */
+        padding: 8px; /* Reducir el padding */
+    }
+
+    button {
+        font-size: 1rem; /* Botón más compacto */
+        padding: 8px;
+    }
+
+    .messages p {
+        font-size: 0.9rem; /* Mensajes más pequeños */
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    p a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsiveness for small screens (phones) */
+@media screen and (max-width: 480px) {
+    .logo-container {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .rounded-logo {
+        width: 70px; /* Reducir tamaño del logo */
+        height: 70px;
+    }
+
+    .container {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0px 4px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Títulos más pequeños */
+    }
+
+    input {
+        font-size: 0.8rem; /* Texto más pequeño */
+        padding: 6px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    .messages p {
+        font-size: 0.8rem; /* Mensajes más pequeños */
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    p a {
+        font-size: 0.8rem;
+    }
+}
